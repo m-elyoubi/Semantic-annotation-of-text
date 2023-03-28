@@ -4,6 +4,7 @@
  */
 package controller;
 
+import org.semanticweb.HermiT.Configuration;
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
@@ -19,7 +20,7 @@ public class HermitReasonerImplementation extends AbstractReasonerImplementation
         
         if(reasoner == null || ! (reasoner instanceof org.semanticweb.HermiT.Reasoner))
         {
-            reasoner = new Reasoner(ontology);
+            reasoner = new Reasoner(new Configuration(),ontology);
             System.out.println("Using "+reasoner.getReasonerName()+" reasoner");
         }
         return reasoner;
